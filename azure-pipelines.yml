@@ -40,5 +40,4 @@ steps:
       on n.IdVendedor=e.IdVendedor
       group by n.Nombre, v.Modelo, c.Descripcion, v.IdVehiculo, v.Marca
       order by v.modelo asc
-      return
     IpDetectionMethod: 'AutoDetect'
