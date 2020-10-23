@@ -27,17 +27,4 @@ steps:
     SqlPassword: 'Kevin96*'
     deployType: 'InlineSqlTask'
     SqlInline: |
-      go
-      create procedure Cantidad_Vehiculos_Vendidos
-      as
-      select  c.Descripcion, COUNT(v.IdVehiculo)[Cantidad], v.Marca, v.Modelo as Tipo, n.Nombre
-      from Concesionarios c
-      inner join Vehiculos v
-      on c.IdConcesionario=v.IdConcesionario
-      inner join VentasEncabezado e
-      on e.IdConcesionario=c.IdConcesionario
-      inner join Vendedores n
-      on n.IdVendedor=e.IdVendedor
-      group by n.Nombre, v.Modelo, c.Descripcion, v.IdVehiculo, v.Marca
-      order by v.modelo asc
     IpDetectionMethod: 'AutoDetect'
