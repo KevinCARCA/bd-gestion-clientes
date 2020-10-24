@@ -17,14 +17,3 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
-- task: SqlAzureDacpacDeployment@1
-  inputs:
-    azureSubscription: 'Evaluación gratuita (e472a9b1-7641-415b-8e14-5ba7aa1b225c)'
-    AuthenticationType: 'server'
-    ServerName: 'gestion-clientes.database.windows.net'
-    DatabaseName: 'db-gestion-clientes'
-    SqlUsername: 'amedc'
-    SqlPassword: 'Kevin96*'
-    deployType: 'InlineSqlTask'
-    SqlInline: |
-    IpDetectionMethod: 'AutoDetect'
