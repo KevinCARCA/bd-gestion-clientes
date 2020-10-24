@@ -13,17 +13,13 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-- task: CopyFiles@2
+- task: MSBuild@1
   inputs:
-    SourceFolder: '$(agent.builddirectory)\s'
+    solution: '**/*.dbsql'
+    msbuildArchitecture: 'x64'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
-    publishLocation: 'Container'
-    Contents: '**'
-    TargetFolder: '$(build.artifactstagingdirectory)'
+    publishLocation: 'FilePath'
+    TargetPath: 'Azure Pipilines/TFS'
